@@ -16,9 +16,12 @@ return new class extends Migration
             $table->string('nama');
             $table->string('lokasi');
             $table->string('deskripsi');
+            $table->string('tanggal_event');
             $table->string('latitude');
             $table->string('longitude');
             $table->string('trailer');
+            $table->integer('harga_tiket')->default(0);
+            $table->enum('status', ['aktif', 'selesai']);
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 <header class="sticky top-0 bg-white h-16 flex items-center px-5 gap-4 z-50">
     <!-- Topbar Brand Logo -->
     <a href="index.html" class="md:hidden flex">
-        <img src="assets/images/logo-sm.png" class="h-6" alt="Small logo">
+        <img src="{{ asset('assets/images/logo-sm.png') }}" class="h-6" alt="Small logo">
     </a>
 
     <!-- Sidenav Menu Toggle Button -->
@@ -18,7 +18,7 @@
     <div class="relative">
         <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
             <button type="button" class="hs-dropdown-toggle nav-link flex items-center gap-2">
-                <img src="assets/images/users/avatar-6.jpg" alt="user-image" class="rounded-full h-10">
+                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="user-image" class="rounded-full h-10">
                 <span class="md:flex items-center hidden">
                     <h5 class="text-base">Administrator</h5>
                     <i class="ti ti-chevron-down text-sm ms-2"></i>
@@ -32,24 +32,7 @@
                 </a>
                 <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100"
                     href="#">
-                    Feed
-                </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100"
-                    href="#">
-                    Analytics
-                </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100"
-                    href="#">
-                    Settings
-                </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100"
-                    href="#">
-                    Support
-                </a>
-                <hr class="my-2">
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100"
-                    href="#">
-                    Log Out
+                    Logout
                 </a>
             </div>
         </div>

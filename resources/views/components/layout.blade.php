@@ -10,7 +10,7 @@
     <title>{{ $title }} | {{ config('app.name') }}</title>
 
     <!-- Icons css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 
     @vite('resources/css/app.css')
@@ -50,9 +50,7 @@
             <footer class="footer h-16 flex items-center px-6 bg-white border-t border-gray-200 shadow">
                 <div class="flex md:justify-between justify-center w-full gap-4">
                     <div>
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> © {{ config('app.name') }}
+                        2024 © {{ config('app.name') }}
                     </div>
                     <div class="md:flex hidden gap-2 item-center md:justify-end">
                         Design &amp; Develop by<a href="#" class="text-primary">Naufal</a>

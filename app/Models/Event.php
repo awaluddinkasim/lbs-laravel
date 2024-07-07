@@ -13,8 +13,11 @@ class Event extends Model
         'nama',
         'lokasi',
         'deskripsi',
+        'tanggal_event',
         'latitude',
         'longitude',
         'trailer',
+        'harga_tiket',
+        'status',
     ];
 }
