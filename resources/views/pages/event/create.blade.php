@@ -12,7 +12,8 @@
                 <x-form.input label="Jumlah Hari" id="jumlahHariInput" name="jumlah_hari" :required="true"
                     :isNumber="true" />
                 <x-form.input label="Trailer Event" id="trailerInput" name="trailer" :required="true" />
-                <x-form.input label="Harga Tiket" id="hargaTiketInput" name="harga_tiket" :isNumber="true" />
+                <x-form.input label="Harga Tiket" id="hargaTiketInput" name="harga_tiket" :isNumber="true"
+                    helperText="Kosongkan apabila gratis" />
             </div>
             <div>
                 <x-form.map label="Pilih Lokasi" />
