@@ -1,4 +1,14 @@
-@props(['label', 'type' => 'text', 'id', 'name', 'required' => false, 'readonly' => false, 'isNumber' => false])
+@props([
+    'label',
+    'type' => 'text',
+    'id',
+    'name',
+    'required' => false,
+    'readonly' => false,
+    'isNumber' => false,
+    'value' => null,
+    'helperText',
+])
 
 @push('scripts')
     @if ($isNumber)
@@ -15,5 +25,8 @@
     <label for="{{ $id }}"
         class="inline-block mb-2 text-sm font-medium text-gray-800">{{ $label }}</label>
     <input type="{{ $type }}" id="{{ $id }}" name="{{ $name }}" class="form-input"
-        {{ $readonly ? 'readonly' : '' }} {{ $required ? 'required' : '' }}>
+        value="{{ $value }}" {{ $readonly ? 'readonly' : '' }} {{ $required ? 'required' : '' }}>
+    @if ($helperText)
+        <small>{{ $helperText }}</small>
+    @endif
 </div>
