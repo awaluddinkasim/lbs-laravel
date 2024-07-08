@@ -14,6 +14,7 @@ class Event extends Model
         'lokasi',
         'deskripsi',
         'tanggal_event',
+        'jumlah_hari',
         'latitude',
         'longitude',
         'trailer',

@@ -26,6 +26,7 @@ class EventController extends BaseController
             'lokasi' => 'required',
             'deskripsi' => 'required',
             'tanggal_event' => 'required|date',
+            'jumlah_hari' => 'required|numeric',
             'latitude' => 'required',
             'longitude' => 'required',
             'trailer' => 'required',
@@ -34,7 +35,7 @@ class EventController extends BaseController
 
         Event::create($event);
 
-        return $this->redirect(route('event.index'), [
+        return $this->redirect(route('event.list', 'aktif'), [
             'status' => 'success',
             'message' => 'Event created successfully',
         ]);
