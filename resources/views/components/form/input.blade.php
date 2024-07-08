@@ -7,7 +7,7 @@
     'readonly' => false,
     'isNumber' => false,
     'value' => null,
-    'helperText',
+    'helperText' => null,
 ])
 
 @push('scripts')
@@ -27,6 +27,6 @@
     <input type="{{ $type }}" id="{{ $id }}" name="{{ $name }}" class="form-input"
         value="{{ $value }}" {{ $readonly ? 'readonly' : '' }} {{ $required ? 'required' : '' }}>
     @if ($helperText)
-        <small>{{ $helperText }}</small>
+        <small class="italic text-gray-500">{{ $helperText }}</small>
     @endif
 </div>
