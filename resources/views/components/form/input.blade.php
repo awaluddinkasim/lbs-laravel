@@ -4,7 +4,9 @@
     @if ($isNumber)
         <script src="{{ asset('assets/libs/autonumeric/autoNumeric.min.js') }}"></script>
         <script>
-            new AutoNumeric('#{{ $id }}');
+            new AutoNumeric('#{{ $id }}', {
+                allowDecimalPadding: false
+            });
         </script>
     @endif
 @endpush
