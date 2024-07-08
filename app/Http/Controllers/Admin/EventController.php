@@ -38,7 +38,7 @@ class EventController extends BaseController
         $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
 
         if ($event['jumlah_hari'] > 1) {
-            $event['tanggal_selesai'] = Carbon::parse($event['tanggal_mulai'])->addDays($event['jumlah_hari']);
+            $event['tanggal_selesai'] = Carbon::parse($event['tanggal_mulai'])->addDays($event['jumlah_hari'] - 1);
         } else {
             $event['tanggal_selesai'] = Carbon::parse($event['tanggal_mulai']);
         }
