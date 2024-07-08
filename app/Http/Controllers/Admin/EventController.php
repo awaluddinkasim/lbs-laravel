@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\BaseController;
 use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
