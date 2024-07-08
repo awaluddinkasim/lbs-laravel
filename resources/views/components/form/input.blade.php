@@ -1,4 +1,13 @@
-@props(['label', 'type' => 'text', 'id', 'name', 'required' => false, 'readonly' => false])
+@props(['label', 'type' => 'text', 'id', 'name', 'required' => false, 'readonly' => false, 'isNumber' => false])
+
+@push('scripts')
+    @if ($isNumber)
+        <script src="{{ asset('assets/libs/autonumeric/autoNumeric.min.js') }}"></script>
+        <script>
+            new AutoNumeric('#{{ $id }}');
+        </script>
+    @endif
+@endpush
 
 <div class="mb-3">
     <label for="{{ $id }}"
