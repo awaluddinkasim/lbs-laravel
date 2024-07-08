@@ -1,36 +1,36 @@
-<header class="sticky top-0 bg-white h-16 flex items-center px-5 gap-4 z-50">
+<header class="sticky top-0 z-50 flex items-center h-16 gap-4 px-5 bg-white">
     <!-- Topbar Brand Logo -->
-    <a href="index.html" class="md:hidden flex">
-        <img src="{{ asset('assets/images/logo-sm.png') }}" class="h-6" alt="Small logo">
+    <a href="/" class="flex md:hidden">
+        <img src="{{ asset('assets/images/logo.png') }}" class="h-6" alt="Small logo">
     </a>
 
     <!-- Sidenav Menu Toggle Button -->
     <button id="button-toggle-menu"
-        class="text-gray-500 hover:text-gray-600 p-2 rounded-full cursor-pointer waves-effect me-auto"
+        class="p-2 text-gray-500 rounded-full cursor-pointer hover:text-gray-600 waves-effect me-auto"
         data-hs-overlay="#app-menu" aria-controls="application-sidebar" aria-label="Toggle navigation">
         <span class="sr-only">Menu Toggle Button</span>
-        <span class="flex items-center justify-center h-6 w-6">
-            <i class="ti ti-menu-2 text-2xl"></i>
+        <span class="flex items-center justify-center w-6 h-6">
+            <i class="text-2xl ti ti-menu-2"></i>
         </span>
     </button>
 
     <!-- Profile Dropdown Button -->
     <div class="relative">
         <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
-            <button type="button" class="hs-dropdown-toggle nav-link flex items-center gap-2">
-                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="user-image" class="rounded-full h-10">
-                <span class="md:flex items-center hidden">
+            <button type="button" class="flex items-center gap-2 hs-dropdown-toggle nav-link">
+                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="user-image" class="h-10 rounded-full">
+                <span class="items-center hidden md:flex">
                     <h5 class="text-base">Administrator</h5>
-                    <i class="ti ti-chevron-down text-sm ms-2"></i>
+                    <i class="text-sm ti ti-chevron-down ms-2"></i>
                 </span>
             </button>
             <div
                 class="hs-dropdown-menu duration mt-2 min-w-[12rem] rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50 hidden">
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100"
+                <a class="flex items-center px-3 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100"
                     href="#">
                     Profile
                 </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100"
+                <a class="flex items-center px-3 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100"
                     href="#">
                     Logout
                 </a>

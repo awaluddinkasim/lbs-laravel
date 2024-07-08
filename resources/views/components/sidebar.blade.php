@@ -1,9 +1,8 @@
 <div id="app-menu"
     class="hs-overlay fixed inset-y-0 start-0 z-[60] hidden w-64 -translate-x-full transform overflow-y-auto border-e border-default-200 bg-white transition-all duration-300 hs-overlay-open:translate-x-0 lg:bottom-0 lg:end-auto lg:z-30 lg:block lg:translate-x-0 rtl:translate-x-full rtl:hs-overlay-open:translate-x-0 rtl:lg:translate-x-0 print:hidden [--overlay-backdrop:true] lg:[--overlay-backdrop:false]">
     <div class="sticky top-0 flex items-center justify-center h-16 px-6">
-        <a href="index.html">
-            <img src="{{ asset('assets/images/logo-dark.png') }}" alt="logo" class="flex h-6 dark:hidden" />
-            <img src="{{ asset('assets/images/logo-light.png') }}" alt="logo" class="hidden h-6 dark:flex" />
+        <a href="/">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="logo" class="flex h-6" />
         </a>
     </div>
 
