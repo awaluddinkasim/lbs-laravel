@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Event;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -37,9 +38,9 @@ class EventController extends BaseController
         $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
 
         if ($event['jumlah_hari'] > 1) {
-            $event['tanggal_selesai'] = $event['tanggal_mulai']->addDays($event['jumlah_hari']);
+            $event['tanggal_selesai'] = Carbon::parse($event['tanggal_mulai'])->addDays($event['jumlah_hari']);
         } else {
-            $event['tanggal_selesai'] = $event['tanggal_mulai'];
+            $event['tanggal_selesai'] = Carbon::parse($event['tanggal_mulai']);
         }
 
         Event::create($event);
