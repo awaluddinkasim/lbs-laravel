@@ -1,8 +1,8 @@
-@props(['label', 'type' => 'text', 'id', 'name', 'required' => false])
+@props(['label', 'type' => 'text', 'id', 'name', 'required' => false, 'readonly' => false])
 
 <div class="mb-3">
     <label for="{{ $id }}"
-        class="text-gray-800 text-sm font-medium inline-block mb-2">{{ $label }}</label>
+        class="inline-block mb-2 text-sm font-medium text-gray-800">{{ $label }}</label>
     <input type="{{ $type }}" id="{{ $id }}" name="{{ $name }}" class="form-input"
-        {{ $required ? 'required' : '' }}>
+        {{ $readonly ? 'readonly' : '' }} {{ $required ? 'required' : '' }}>
 </div>

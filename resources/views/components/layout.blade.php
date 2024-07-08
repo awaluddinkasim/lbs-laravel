@@ -17,8 +17,9 @@
 
     <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
 
-
     <script src="{{ asset('assets/js/head.js') }}"></script>
+
+    @stack('styles')
 </head>
 
 <body>
@@ -39,7 +40,7 @@
             <main class="flex-grow p-6">
 
                 <!-- Page Title Start -->
-                <h4 class="text-slate-900 text-lg font-medium mb-2">{{ $title }}</h4>
+                <h4 class="mb-2 text-lg font-medium text-slate-900">{{ $title }}</h4>
                 <!-- Page Title End -->
 
                 {{ $slot }}
@@ -47,12 +48,12 @@
             </main>
 
             <!-- Footer Start -->
-            <footer class="footer h-16 flex items-center px-6 bg-white border-t border-gray-200 shadow">
-                <div class="flex md:justify-between justify-center w-full gap-4">
+            <footer class="flex items-center h-16 px-6 bg-white border-t border-gray-200 shadow footer">
+                <div class="flex justify-center w-full gap-4 md:justify-between">
                     <div>
                         2024 © {{ config('app.name') }}
                     </div>
-                    <div class="md:flex hidden gap-2 item-center md:justify-end">
+                    <div class="hidden gap-2 md:flex item-center md:justify-end">
                         Design &amp; Develop by<a href="#" class="text-primary">Naufal</a>
                     </div>
                 </div>
@@ -74,6 +75,7 @@
 
     <!-- App Js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
