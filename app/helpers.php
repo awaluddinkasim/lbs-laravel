@@ -1,8 +1,8 @@
 <?php
 
 if (!function_exists('convertToNumber')) {
-    function convertToNumber($value)
+    function convertToNumber($value): int
     {
-        return str_replace(',', '', $value);
+        return (int) str_replace(',', '', $value);
     }
 }
