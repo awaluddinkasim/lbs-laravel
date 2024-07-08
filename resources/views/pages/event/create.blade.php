@@ -7,11 +7,12 @@
                 <x-form.input label="Lokasi" id="lokasiInput" name="lokasi" :required="true" />
                 <x-form.textarea label="Deskripsi" id="deskripsiInput" name="deskripsi"
                     :required="true"></x-form.textarea>
-                <x-form.input label="Tanggal Event" type="date" id="tanggalInput" name="tanggal_event"
+                <x-form.input label="Tanggal Event" type="date" id="tanggalInput" name="tanggal_mulai"
                     :required="true" />
-                <x-form.input label="Jumlah Hari" id="jumlahHariInput" name="jumlahHari" :required="true" />
+                <x-form.input label="Jumlah Hari" id="jumlahHariInput" name="jumlah_hari" :required="true"
+                    :isNumber="true" />
                 <x-form.input label="Trailer Event" id="trailerInput" name="trailer" :required="true" />
-                <x-form.input label="Harga Tiket" id="hargaTiketInput" name="harga_tiket" />
+                <x-form.input label="Harga Tiket" id="hargaTiketInput" name="harga_tiket" :isNumber="true" />
             </div>
             <div>
                 <x-form.map label="Pilih Lokasi" />

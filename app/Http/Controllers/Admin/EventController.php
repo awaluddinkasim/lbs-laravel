@@ -25,13 +25,22 @@ class EventController extends BaseController
             'nama' => 'required',
             'lokasi' => 'required',
             'deskripsi' => 'required',
-            'tanggal_event' => 'required|date',
-            'jumlah_hari' => 'required|numeric',
+            'tanggal_mulai' => 'required|date',
+            'jumlah_hari' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
             'trailer' => 'required',
-            'harga_tiket' => 'nullable|numeric',
+            'harga_tiket' => 'nullable',
         ]);
+
+        $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
+        $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
+
+        if ($event['jumlah_hari'] > 1) {
+            $event['tanggal_selesai'] = $event['tanggal_mulai']->addDays($event['jumlah_hari']);
+        } else {
+            $event['tanggal_selesai'] = $event['tanggal_mulai'];
+        }
 
         Event::create($event);
 
