@@ -13,7 +13,7 @@
             @foreach (config('menu') as $menu)
                 @if (!isset($menu['sub']))
                     <li class="menu-item">
-                        <a href="{{ isset($menu['routeName']) ? route($menu['routeName'], isset($menu['routeParams']) ? $menu['routeParams'] : []) : '#' }}"
+                        <a href="{{ isset($menu['routeName']) ? route($menu['routeName'], $menu['routeParams'] ?? []) : '#' }}"
                             class="group flex items-center gap-x-3.5 rounded-e-full px-4 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100">
                             <i class="text-2xl font-light transition-all material-symbols-rounded group-hover:fill-1">
                                 {{ $menu['icon'] }}
@@ -37,7 +37,7 @@
                             <ul class="mt-2 space-y-2">
                                 @foreach ($menu['sub'] as $sub)
                                     <li class="menu-item">
-                                        <a href="{{ isset($sub['routeName']) ? route($sub['routeName'], isset($sub['routeParams']) ? $sub['routeParams'] : []) : '#' }}"
+                                        <a href="{{ isset($sub['routeName']) ? route($sub['routeName'], $sub['routeParams'] ?? []) : '#' }}"
                                             class="flex items-center gap-x-3.5 rounded-e-full px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-100">
                                             <i class="ti ti-circle-filled scale-[.25] text-lg"></i>
                                             <span class="menu-text">{{ $sub['title'] }}</span>
