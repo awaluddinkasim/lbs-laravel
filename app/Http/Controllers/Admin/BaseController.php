@@ -15,4 +15,12 @@ class BaseController extends Controller
             $response['message']
         );
     }
+
+    public function redirectWithInput(string $redirectTo, array $request, array $response): RedirectResponse
+    {
+        return redirect($redirectTo)->with(
+            $response['status'],
+            $response['message']
+        )->withInput($request);
+    }
 }
