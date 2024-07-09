@@ -72,10 +72,30 @@
     <script src="{{ asset('assets/libs/iconify-icon/iconify-icon.min.js') }}"></script>
     <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('assets/libs/preline/preline.js') }}"></script>
+    <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
     <!-- App Js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @stack('scripts')
+
+    @if (Session::has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: '{{ Session::get('success') }}',
+            })
+        </script>
+    @endif
+    @if (Session::has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Berhasil',
+                text: '{{ Session::get('error') }}',
+            })
+        </script>
+    @endif
 </body>
 
 </html>
