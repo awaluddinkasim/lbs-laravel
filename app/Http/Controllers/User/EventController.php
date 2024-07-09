@@ -14,7 +14,7 @@ class EventController extends BaseController
     {
         return $this->jsonResponse([
             'message' => 'success',
-            'events' => EventResource::collection(Event::orderBy(['status', 'tanggal_mulai'])->get()),
+            'events' => EventResource::collection(Event::orderBy('status')->orderBy('tanggal_mulai')->get()),
         ], 200);
     }
 }
