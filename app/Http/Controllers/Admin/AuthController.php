@@ -30,7 +30,7 @@ class AuthController extends BaseController
             return redirect()->indended();
         }
 
-        return $this->redirectWithInput(back(), $request->all(), [
+        return $this->backWithInput($request->all(), [
             'status' => 'error',
             'message' => 'Email atau Password salah!'
         ]);

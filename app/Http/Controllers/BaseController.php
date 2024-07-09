@@ -8,20 +8,29 @@ use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
+
+    public function back(array $response): RedirectResponse
+    {
+        return redirect()->back()->with(
+            $response['status'],
+            $response['message']
+        );
+    }
+
+    public function backWithInput(array $request, array $response): RedirectResponse
+    {
+        return redirect()->back()->with(
+            $response['status'],
+            $response['message']
+        )->withInput($request);
+    }
+
     public function redirect(string $redirectTo, array $response): RedirectResponse
     {
         return redirect($redirectTo)->with(
             $response['status'],
             $response['message']
         );
-    }
-
-    public function redirectWithInput(string $redirectTo, array $request, array $response): RedirectResponse
-    {
-        return redirect($redirectTo)->with(
-            $response['status'],
-            $response['message']
-        )->withInput($request);
     }
 
     public function jsonResponse(array $data, int $statusCode = 200): JsonResponse

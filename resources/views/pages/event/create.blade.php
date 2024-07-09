@@ -17,7 +17,9 @@
             </div>
             <div>
                 <x-form.map label="Pilih Lokasi" />
-                <x-component.button label="Simpan" type="submit" :block="true" />
+                <div class="my-2">
+                    <x-component.button label="Simpan" type="submit" :block="true" />
+                </div>
             </div>
         </form>
     </x-component.card>

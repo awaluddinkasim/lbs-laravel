@@ -35,8 +35,16 @@
                         <td>{{ Carbon\Carbon::parse($event->tanggal_mulai)->isoFormat('DD MMMM YYYY') }}</td>
                         <td>{{ Carbon\Carbon::parse($event->tanggal_selesai)->isoFormat('DD MMMM YYYY') }}</td>
                         <td>{{ $event->harga_tiket ? 'Rp. ' . number_format($event->harga_tiket) : 'Gratis' }}</td>
-                        <td>
-                            <x-component.button label="Edit" href="" />
+                        <td class="text-center">
+                            <x-component.button label="Edit"
+                                href="{{ route('event.edit', ['status' => $event->status, 'event' => $event->id]) }}" />
+                            <form
+                                action="{{ route('event.destroy', ['status' => $event->status, 'event' => $event->id]) }}"
+                                class="inline" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <x-component.button-soft type="submit" label="Hapus" color="danger" />
+                            </form>
                         </td>
                     </tr>
                 @endforeach
