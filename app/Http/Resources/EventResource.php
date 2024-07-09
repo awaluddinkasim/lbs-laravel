@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,8 +20,8 @@ class EventResource extends JsonResource
             'nama' => $this->nama,
             'lokasi' => $this->lokasi,
             'deskripsi' => $this->deskripsi,
-            'tanggal_mulai' => $this->tanggal_mulai,
-            'tanggal_selesai' => $this->tanggal_selesai,
+            'tanggal_mulai' => Carbon::parse($this->tanggal_mulai)->isoFormat('DD MMMM YYYY'),
+            'tanggal_selesai' => Carbon::parse($this->tanggal_selesai)->isoFormat('DD MMMM YYYY'),
             'jumlah_hari' => $this->jumlah_hari,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
