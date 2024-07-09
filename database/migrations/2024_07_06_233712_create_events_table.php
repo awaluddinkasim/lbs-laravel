@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('lokasi');
             $table->string('deskripsi');
             $table->date('tanggal_mulai');
-            $table->date('tanggal_selesai');
+            $table->integer('jumlah_hari');
             $table->string('latitude');
             $table->string('longitude');
             $table->string('trailer');

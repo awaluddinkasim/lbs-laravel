@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController;
 use App\Models\Event;
-use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -13,7 +12,9 @@ class EventController extends BaseController
 {
     public function list($status): View
     {
-        return view('pages.event');
+        return view('pages.event', [
+            'events' => Event::where('status', $status)->get(),
+        ]);
     }
 
     public function create(): View
@@ -37,12 +38,6 @@ class EventController extends BaseController
 
         $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
         $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
-
-        if ($event['jumlah_hari'] > 1) {
-            $event['tanggal_selesai'] = Carbon::parse($event['tanggal_mulai'])->addDays($event['jumlah_hari'] - 1);
-        } else {
-            $event['tanggal_selesai'] = Carbon::parse($event['tanggal_mulai']);
-        }
 
         Event::create($event);
 
