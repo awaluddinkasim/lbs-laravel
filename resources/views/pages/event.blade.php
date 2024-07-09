@@ -1,4 +1,4 @@
-<x-layout title="Event">
+<x-layout title="Event {{ ucfirst(request()->route('status')) }}">
     <x-component.card>
         <x-component.datatable id="table">
             <thead>
@@ -9,7 +9,7 @@
                     <th>Tanggal Mulai</th>
                     <th>Tanggal Selesai</th>
                     <th>Harga Tiket</th>
-                    <th></th>
+                    <th>Lokasi</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,17 +21,24 @@
                         <td>{{ Carbon\Carbon::parse($event->tanggal_mulai)->isoFormat('DD MMMM YYYY') }}</td>
                         <td>{{ Carbon\Carbon::parse($event->tanggal_selesai)->isoFormat('DD MMMM YYYY') }}</td>
                         <td>{{ $event->harga_tiket ? 'Rp. ' . number_format($event->harga_tiket) : 'Gratis' }}</td>
-                        <td class="text-center">
-                            <x-component.button label="Edit"
-                                href="{{ route('event.edit', ['status' => $event->status, 'event' => $event->id]) }}" />
-                            <form
-                                action="{{ route('event.destroy', ['status' => $event->status, 'event' => $event->id]) }}"
-                                class="inline" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <x-component.button-soft type="submit" label="Hapus" color="danger" />
-                            </form>
-                        </td>
+                        @if (request()->route('status') == 'aktif')
+                            <td class="text-center">
+                                <x-component.button label="Edit"
+                                    href="{{ route('event.edit', ['status' => $event->status, 'event' => $event->id]) }}" />
+                                <form
+                                    action="{{ route('event.destroy', ['status' => $event->status, 'event' => $event->id]) }}"
+                                    class="inline" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <x-component.button-soft type="submit" label="Hapus" color="danger" />
+                                </form>
+                            </td>
+                        @else
+                            <td>
+                                <x-component.button-soft label="Lihat" color="success"
+                                    href="{{ route('event.show-location', $event->id) }}" />
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

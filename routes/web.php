@@ -16,6 +16,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
     Route::get('/list/{status}', [EventController::class, 'list'])->name('list');
+    Route::get('/location/{event:id}', [EventController::class, 'location'])->name('show-location');
     Route::get('/create', [EventController::class, 'create'])->name('create');
     Route::post('/store', [EventController::class, 'store'])->name('store');
     Route::get('/list/{status}/edit/{event:id}', [EventController::class, 'edit'])->name('edit');

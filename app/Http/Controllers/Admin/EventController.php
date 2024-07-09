@@ -17,6 +17,13 @@ class EventController extends BaseController
         ]);
     }
 
+    public function location($id): View
+    {
+        return view('pages.event.map', [
+            'event' => Event::find($id),
+        ]);
+    }
+
     public function create(): View
     {
         return view('pages.event.create');
