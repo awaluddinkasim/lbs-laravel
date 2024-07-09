@@ -1,20 +1,6 @@
-@push('styles')
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
-@endpush
-
-@push('scripts')
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
-    <script>
-        let table = new DataTable('#myTable', {
-            sort: false,
-            paging: false
-        });
-    </script>
-@endpush
-
 <x-layout title="Event">
     <x-component.card>
-        <table id="myTable" class="display">
+        <x-component.datatable id="table">
             <thead>
                 <tr>
                     <th>#</th>
@@ -49,6 +35,6 @@
                     </tr>
                 @endforeach
             </tbody>
-        </table>
+        </x-component.datatable>
     </x-component.card>
 </x-layout>
