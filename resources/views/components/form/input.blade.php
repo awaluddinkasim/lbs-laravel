@@ -15,7 +15,8 @@
         <script src="{{ asset('assets/libs/autonumeric/autoNumeric.min.js') }}"></script>
         <script>
             new AutoNumeric('#{{ $id }}', {
-                allowDecimalPadding: false
+                allowDecimalPadding: false,
+                modifyValueOnWheel: false
             });
         </script>
     @endif
