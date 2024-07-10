@@ -9,3 +9,4 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth:sanctum');
 
 Route::get('/events', [EventController::class, 'get']);
+Route::get('/events/search', [EventController::class, 'search']);

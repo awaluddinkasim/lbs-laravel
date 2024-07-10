@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\EventStored;
 use App\Http\Controllers\BaseController;
 use App\Models\Event;
 use Illuminate\Http\RedirectResponse;
@@ -47,6 +48,8 @@ class EventController extends BaseController
         $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
 
         Event::create($event);
+
+        EventStored::dispatch("Event baru tersedia: {$event['nama']}");
 
         return $this->redirect(route('event.list', 'aktif'), [
             'status' => 'success',
