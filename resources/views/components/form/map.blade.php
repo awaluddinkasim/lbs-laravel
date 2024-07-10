@@ -39,7 +39,7 @@
 
 <div>
     <div class="mb-3">
-        <label class="mb-2">{{ $label }}</label>
+        <label class="inline-block mb-2 text-sm font-medium text-gray-800">{{ $label }}</label>
         <div id="map"></div>
     </div>
     <div class="flex flex-row space-x-4">
