@@ -43,8 +43,8 @@
                     :required="true" />
                 <x-form.input label="Jumlah Hari" id="jumlahHariInput" name="jumlah_hari" :required="true"
                     :isNumber="true" />
-                <x-form.input label="Lokasi" id="lokasiInput" name="lokasi" :required="true" />
-                <x-form.map label="Pilih Lokasi" />
+                <x-form.input label="Alamat Event" id="lokasiInput" name="lokasi" :required="true" />
+                <x-form.map label="Titik Lokasi" />
                 <div class="my-2">
                     <x-component.button label="Simpan" type="submit" :block="true" />
                 </div>

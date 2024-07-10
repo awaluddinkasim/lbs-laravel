@@ -47,9 +47,9 @@
                     value="{{ $event->tanggal_mulai }}" :required="true" />
                 <x-form.input label="Jumlah Hari" id="jumlahHariInput" name="jumlah_hari"
                     value="{{ $event->jumlah_hari }}" :required="true" :isNumber="true" />
-                <x-form.input label="Lokasi" id="lokasiInput" name="lokasi" value="{{ $event->lokasi }}"
+                <x-form.input label="Alamat Event" id="lokasiInput" name="lokasi" value="{{ $event->lokasi }}"
                     :required="true" />
-                <x-form.map label="Pilih Lokasi" latitude="{{ $event->latitude }}"
+                <x-form.map label="Titik Lokasi" latitude="{{ $event->latitude }}"
                     longitude="{{ $event->longitude }}" />
                 <div class="my-2">
                     <x-component.button label="Simpan" type="submit" :block="true" />
