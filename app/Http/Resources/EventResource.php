@@ -27,6 +27,7 @@ class EventResource extends JsonResource
             'longitude' => $this->longitude,
             'trailer' => $this->trailer,
             'harga_tiket' => $this->harga_tiket,
+            'poster' => $this->poster,
             'status' => $this->status,
         ];
     }

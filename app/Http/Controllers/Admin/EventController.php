@@ -42,10 +42,19 @@ class EventController extends BaseController
             'longitude' => 'required',
             'trailer' => 'required',
             'harga_tiket' => 'nullable',
+            'poster' => 'required|image',
         ]);
 
         $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
         $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
+
+        if ($request->hasFile('poster')) {
+            $file = $request->file('poster');
+            $filename = uniqid() . '.' . $file->extension();
+            $file->move(public_path('poster'), $filename);
+
+            $event['poster'] = $filename;
+        }
 
         Event::create($event);
 
@@ -76,10 +85,21 @@ class EventController extends BaseController
             'longitude' => 'required',
             'trailer' => 'required',
             'harga_tiket' => 'nullable',
+            'poster' => 'nullable|image',
         ]);
 
         $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
         $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
+
+        if ($request->hasFile('poster')) {
+            $file = $request->file('poster');
+            $filename = uniqid() . '.' . $file->extension();
+            $file->move(public_path('poster'), $filename);
+
+            $event['poster'] = $filename;
+        } else {
+            unset($event['poster']);
+        }
 
         Event::where('id', $id)->update($event);
 

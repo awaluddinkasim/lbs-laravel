@@ -16,6 +16,7 @@
                     helperText="Kosongkan apabila gratis" />
             </div>
             <div>
+                <x-form.input label="Poster" type="file" id="posterInput" name="poster" :required="true" />
                 <x-form.map label="Pilih Lokasi" />
                 <div class="my-2">
                     <x-component.button label="Simpan" type="submit" :block="true" />

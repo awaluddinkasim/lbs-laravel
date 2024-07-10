@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('longitude');
             $table->string('trailer');
             $table->integer('harga_tiket')->default(0);
+            $table->string('poster');
             $table->enum('status', ['aktif', 'selesai'])->default('aktif');
             $table->timestamps();
         });
