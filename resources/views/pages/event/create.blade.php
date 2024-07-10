@@ -22,15 +22,16 @@
 
 <x-layout title="Tambah Event">
     <x-component.card>
-        <form action="{{ route('event.store') }}" method="post" autocomplete="off" class="grid gap-6 lg:grid-cols-2">
+        <form action="{{ route('event.store') }}" method="post" autocomplete="off" class="grid gap-6 lg:grid-cols-2"
+            enctype="multipart/form-data">
             @csrf
             <div>
                 <x-form.input label="Nama Event" id="namaInput" name="nama" :required="true" />
                 <x-form.textarea label="Deskripsi" id="deskripsiInput" name="deskripsi"
                     :required="true"></x-form.textarea>
-                <x-form.input label="Trailer Event" id="trailerInput" name="trailer" :required="true" />
                 <x-form.input label="Harga Tiket" id="hargaTiketInput" name="harga_tiket" :isNumber="true"
                     helperText="Kosongkan apabila gratis" />
+                <x-form.input label="Trailer Event" id="trailerInput" name="trailer" :required="true" />
                 <x-form.input label="Poster" type="file" id="posterInput" name="poster" :required="true" />
                 <div class="h-72 w-full border-dotted border-2 border-gray-300 rounded-lg mb-3 flex justify-center items-center bg-slate"
                     id="posterPreview">
