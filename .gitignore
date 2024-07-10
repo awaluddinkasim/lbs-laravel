@@ -4,6 +4,7 @@
 /public/assets/*.js
 /public/assets/manifest.json
 /public/hot
+/public/poster/*
 /public/storage
 /storage/*.key
 /vendor
