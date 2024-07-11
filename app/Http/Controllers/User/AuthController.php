@@ -13,13 +13,15 @@ class AuthController extends BaseController
 {
     public function login(Request $request): JsonResponse
     {
-        if (Auth::attempt($request->only('email', 'password'))) {
-            $user = User::find(Auth::user()->id);
+        if (Auth::guard('user')->attempt($request->only('email', 'password'))) {
+            $user = User::find(Auth::guard('user')->user()->id);
 
             if (!$user->hasVerifiedEmail()) {
-                Auth::logout();
+                $user->sendEmailVerificationNotification();
+
+                Auth::guard('user')->logout();
                 return $this->jsonResponse([
-                    'message' => 'Email belum diverifikasi!'
+                    'message' => 'Email belum diverifikasi, silahkan periksa email anda.'
                 ], 401);
             }
 
