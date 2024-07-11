@@ -4,6 +4,7 @@ use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schedule;
 
 Artisan::command('inspire', function () {
@@ -20,6 +21,8 @@ Schedule::call(function () {
             $event->update([
                 'status' => 'selesai',
             ]);
+
+            File::delete(public_path('poster/' . $event->poster));
         }
     }
 })->daily();

@@ -7,6 +7,7 @@ use App\Http\Controllers\BaseController;
 use App\Models\Event;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 
 class EventController extends BaseController
@@ -111,7 +112,11 @@ class EventController extends BaseController
 
     public function destroy($status, $id): RedirectResponse
     {
-        Event::where('status', $status)->where('id', $id)->delete();
+        $event = Event::where('status', $status)->where('id', $id)->first();
+
+        File::delete(public_path('poster/' . $event->poster));
+
+        $event->delete();
 
         return $this->back([
             'status' => 'success',
