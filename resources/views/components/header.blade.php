@@ -30,10 +30,13 @@
                     href="#">
                     Profile
                 </a>
-                <a class="flex items-center px-3 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100"
-                    href="#">
-                    Logout
-                </a>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button
+                        class="flex w-full items-center px-3 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100">
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
     </div>

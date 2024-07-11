@@ -27,7 +27,7 @@ class AuthController extends BaseController
         if (auth()->attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return redirect()->indended();
+            return redirect()->intended();
         }
 
         return $this->backWithInput($request->all(), [
