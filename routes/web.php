@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\UserController as VerificationController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::delete('/delete/{user:id}', [UserController::class, 'destroy'])->name('destroy');
     });
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

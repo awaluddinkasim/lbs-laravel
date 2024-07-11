@@ -27,7 +27,7 @@
             <div
                 class="hs-dropdown-menu duration mt-2 min-w-[12rem] rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50 hidden">
                 <a class="flex items-center px-3 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100"
-                    href="#">
+                    href="{{ route('profile') }}">
                     Profile
                 </a>
                 <form action="{{ route('logout') }}" method="post">
