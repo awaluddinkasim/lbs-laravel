@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         Admin::create([
             'nama' => 'Administrator',
             'email' => 'admin@localhost',
             'password' => Hash::make('password'),
         ]);
+
+        User::factory(16)->create();
     }
 }

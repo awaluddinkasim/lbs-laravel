@@ -29,4 +29,5 @@ Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
 
 Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::delete('/delete/{user:id}', [UserController::class, 'destroy'])->name('destroy');
 });
