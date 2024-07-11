@@ -20,7 +20,7 @@
             <button type="button" class="flex items-center gap-2 hs-dropdown-toggle nav-link">
                 <img src="{{ asset('assets/images/logo-sm.png') }}" alt="user-image" class="h-10 rounded-full">
                 <span class="items-center hidden md:flex">
-                    <h5 class="text-base">Administrator</h5>
+                    <h5 class="text-base">{{ auth()->user()->nama }}</h5>
                     <i class="text-sm ti ti-chevron-down ms-2"></i>
                 </span>
             </button>
