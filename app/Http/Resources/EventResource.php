@@ -28,6 +28,7 @@ class EventResource extends JsonResource
             'trailer' => $this->trailer,
             'harga_tiket' => $this->harga_tiket,
             'poster' => $this->poster,
+            'contact_person' => $this->contact_person,
             'status' => $this->status,
         ];
     }
