@@ -22,6 +22,7 @@ class Event extends Model
         'trailer',
         'harga_tiket',
         'poster',
+        'contact_person',
         'status',
     ];
 

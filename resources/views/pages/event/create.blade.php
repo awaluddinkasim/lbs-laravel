@@ -27,7 +27,7 @@
             @csrf
             <div>
                 <x-form.input label="Nama Event" id="namaInput" name="nama" :required="true" />
-                <x-form.textarea label="Deskripsi" id="deskripsiInput" name="deskripsi"
+                <x-form.textarea label="Deskripsi" id="deskripsiInput" name="deskripsi" rows="5"
                     :required="true"></x-form.textarea>
                 <x-form.input label="Harga Tiket" id="hargaTiketInput" name="harga_tiket" :isNumber="true"
                     helperText="Kosongkan apabila gratis" />
@@ -43,7 +43,9 @@
                     :required="true" />
                 <x-form.input label="Jumlah Hari" id="jumlahHariInput" name="jumlah_hari" :required="true"
                     :isNumber="true" />
-                <x-form.input label="Alamat Event" id="lokasiInput" name="lokasi" :required="true" />
+                <x-form.input label="Contact Person" id="contactPersonInput" name="contact_person" :required="true" />
+                <x-form.textarea label="Alamat Event" id="lokasiInput" name="lokasi"
+                    :required="true"></x-form.textarea>
                 <x-form.map label="Titik Lokasi" />
                 <div class="my-2">
                     <x-component.button label="Simpan" type="submit" :block="true" />

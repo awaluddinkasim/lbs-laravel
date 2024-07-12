@@ -44,6 +44,7 @@ class EventController extends BaseController
             'trailer' => 'required',
             'harga_tiket' => 'nullable',
             'poster' => 'required|image',
+            'contact_person' => 'required',
         ]);
 
         $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
@@ -87,6 +88,7 @@ class EventController extends BaseController
             'trailer' => 'required',
             'harga_tiket' => 'nullable',
             'poster' => 'nullable|image',
+            'contact_person' => 'required',
         ]);
 
         $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
