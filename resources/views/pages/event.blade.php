@@ -9,7 +9,7 @@
                     <th>Tanggal Mulai</th>
                     <th>Tanggal Selesai</th>
                     <th>Harga Tiket</th>
-                    <th>Lokasi</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,11 +32,6 @@
                                     @csrf
                                     <x-component.button-soft type="submit" label="Hapus" color="danger" />
                                 </form>
-                            </td>
-                        @else
-                            <td>
-                                <x-component.button-soft label="Lihat" color="success"
-                                    href="{{ route('event.show-location', $event->id) }}" />
                             </td>
                         @endif
                     </tr>
