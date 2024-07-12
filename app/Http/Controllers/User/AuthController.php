@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class AuthController extends BaseController
 
             return $this->jsonResponse([
                 'status' => 'success',
-                'user' => $user,
+                'user' => new UserResource($user),
                 'token' => $user->createToken('authToken')->plainTextToken
             ]);
         }

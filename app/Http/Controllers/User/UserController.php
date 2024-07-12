@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Events\UserRegistered;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
@@ -46,7 +47,7 @@ class UserController extends BaseController
     {
         return $this->jsonResponse([
             'message' => 'success',
-            'user' => $request->user(),
+            'user' => new UserResource($request->user()),
         ]);
     }
 
