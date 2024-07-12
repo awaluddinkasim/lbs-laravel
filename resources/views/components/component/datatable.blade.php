@@ -9,7 +9,7 @@
     <script>
         let table = new DataTable('#{{ $id }}', {
             sort: false,
-            paging: false
+            lengthChange: false
         });
     </script>
 @endpush
