@@ -33,7 +33,7 @@ class EventController extends BaseController
 
     public function store(Request $request): RedirectResponse
     {
-        $event = $request->validate([
+        $data = $request->validate([
             'nama' => 'required',
             'lokasi' => 'required',
             'deskripsi' => 'required',
@@ -46,20 +46,20 @@ class EventController extends BaseController
             'poster' => 'required|image',
         ]);
 
-        $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
-        $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
+        $data['jumlah_hari'] = convertToNumber($data['jumlah_hari']);
+        $data['harga_tiket'] = convertToNumber($data['harga_tiket']);
 
         if ($request->hasFile('poster')) {
             $file = $request->file('poster');
             $filename = uniqid() . '.' . $file->extension();
             $file->move(public_path('poster'), $filename);
 
-            $event['poster'] = $filename;
+            $data['poster'] = $filename;
         }
 
-        Event::create($event);
+        Event::create($data);
 
-        EventStored::dispatch("Event baru tersedia: {$event['nama']}");
+        EventStored::dispatch("Event baru tersedia: {$data['nama']}");
 
         return $this->redirect(route('event.list', 'aktif'), [
             'status' => 'success',
@@ -76,7 +76,7 @@ class EventController extends BaseController
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $event = $request->validate([
+        $data = $request->validate([
             'nama' => 'required',
             'lokasi' => 'required',
             'deskripsi' => 'required',
@@ -89,20 +89,20 @@ class EventController extends BaseController
             'poster' => 'nullable|image',
         ]);
 
-        $event['jumlah_hari'] = convertToNumber($event['jumlah_hari']);
-        $event['harga_tiket'] = convertToNumber($event['harga_tiket']);
+        $data['jumlah_hari'] = convertToNumber($data['jumlah_hari']);
+        $data['harga_tiket'] = convertToNumber($data['harga_tiket']);
 
         if ($request->hasFile('poster')) {
             $file = $request->file('poster');
             $filename = uniqid() . '.' . $file->extension();
             $file->move(public_path('poster'), $filename);
 
-            $event['poster'] = $filename;
+            $data['poster'] = $filename;
         } else {
-            unset($event['poster']);
+            unset($data['poster']);
         }
 
-        Event::where('id', $id)->update($event);
+        Event::where('id', $id)->update($data);
 
         return $this->back([
             'status' => 'success',
