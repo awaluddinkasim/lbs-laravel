@@ -1,11 +1,11 @@
 @props(['id'])
 
 @push('styles')
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="{{ asset('assets/libs/datatables/datatables.min.css') }}" />
 @endpush
 
 @push('scripts')
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="{{ asset('assets/libs/datatables/datatables.min.js') }}"></script>
     <script>
         let table = new DataTable('#{{ $id }}', {
             sort: false,
