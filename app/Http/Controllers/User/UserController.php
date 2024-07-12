@@ -123,7 +123,7 @@ class UserController extends BaseController
 
         return $this->jsonResponse([
             'message' => 'success',
-            'user' => $user
+            'user' => new UserResource($user),
         ], 200);
     }
 }
