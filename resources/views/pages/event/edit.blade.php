@@ -14,7 +14,7 @@
             }
 
             $('#posterPreview').html(
-                `<img src="${URL.createObjectURL(event.target.files[0])}" class="w-full h-full object-contain" />`
+                `<img src="${URL.createObjectURL(event.target.files[0])}" class="object-contain w-full h-full" />`
             );
         })
     </script>
@@ -35,11 +35,11 @@
                     value="{{ $event->harga_tiket }}" :isNumber="true" helperText="Kosongkan apabila gratis" />
                 <x-form.input label="Trailer Event" id="trailerInput" name="trailer" value="{{ $event->trailer }}"
                     :required="true" />
-                <x-form.input label="Poster" type="file" id="posterInput" name="poster" :required="true" />
-                <div class="h-72 w-full border-dotted border-2 border-gray-300 rounded-lg mb-3 flex justify-center items-center bg-slate"
+                <x-form.input label="Poster" type="file" id="posterInput" name="poster" />
+                <div class="flex items-center justify-center w-full mb-3 border-2 border-gray-300 border-dotted rounded-lg h-72 bg-slate"
                     id="posterPreview">
                     <img src="{{ asset('poster/' . $event->poster) }}" alt=""
-                        class="w-full h-full object-contain">
+                        class="object-contain w-full h-full">
                 </div>
             </div>
             <div>

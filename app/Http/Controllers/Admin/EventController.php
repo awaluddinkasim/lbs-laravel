@@ -92,7 +92,11 @@ class EventController extends BaseController
         $data['jumlah_hari'] = convertToNumber($data['jumlah_hari']);
         $data['harga_tiket'] = convertToNumber($data['harga_tiket']);
 
+        $event = Event::where('id', $id)->first();
+
         if ($request->hasFile('poster')) {
+            File::delete(public_path('poster/' . $event->poster));
+
             $file = $request->file('poster');
             $filename = uniqid() . '.' . $file->extension();
             $file->move(public_path('poster'), $filename);
@@ -102,7 +106,7 @@ class EventController extends BaseController
             unset($data['poster']);
         }
 
-        Event::where('id', $id)->update($data);
+        $event->update($data);
 
         return $this->back([
             'status' => 'success',
