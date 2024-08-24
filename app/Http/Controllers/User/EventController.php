@@ -13,7 +13,7 @@ class EventController extends BaseController
 {
     public function get(): JsonResponse
     {
-        $events = Event::where('status', 'aktif')->orderBy('status')->orderBy('tanggal_mulai')->get();
+        $events = Event::orderBy('tanggal_mulai')->get();
 
         return $this->jsonResponse([
             'message' => 'success',
